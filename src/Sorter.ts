@@ -4,8 +4,8 @@ interface Collection {
   swap(leftIndex: number, rightIndex: number): void
 }
 
-export class Sorter<T extends Collection> {
-  constructor(public collection: T) {
+export class Sorter {
+  constructor(public collection: Collection) {
     this.collection = collection
   }
 

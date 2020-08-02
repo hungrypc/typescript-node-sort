@@ -63,14 +63,20 @@ export class LinkedList {
     }
 
     
-    const leftNode = this.at(leftIndex)
-    const leftNodePrev = this.at(leftIndex-1)
-    const rightNode = this.at(rightIndex)
-    const rightNodeNext = this.at(rightIndex+1)
+    // const leftNode = this.at(leftIndex)
+    // const leftNodePrev = this.at(leftIndex-1)
+    // const rightNode = this.at(rightIndex)
+    // const rightNodeNext = this.at(rightIndex+1)
 
-    leftNodePrev.next = rightNode
-    rightNode.next = leftNode
-    leftNode.next = rightNodeNext
+    // leftNodePrev.next = rightNode
+    // rightNode.next = leftNode
+    // leftNode.next = rightNodeNext
+    const leftNode = this.at(leftIndex)
+    const rightNode = this.at(rightIndex)
+
+    const temp = leftNode.value
+    leftNode.value = rightNode.value
+    rightNode.value = temp    
   }
 
   print(): void {

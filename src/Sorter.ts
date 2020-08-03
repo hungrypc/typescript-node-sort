@@ -4,19 +4,19 @@ interface Collection {
   swap(leftIndex: number, rightIndex: number): void
 }
 
-export class Sorter {
-  constructor(public collection: Collection) {
-    this.collection = collection
-  }
+export abstract class Sorter {
+  abstract compare(leftIndex: number, rightIndex: number): boolean
+  abstract swap(leftIndex: number, rightIndex: number): void
+  abstract length: number
 
   sort(): void {
-    const { length } = this.collection
+    const { length } = this
     let noSwaps
     for (let i = length; i > 0; i--) {
       noSwaps = true
       for (let j = 0; j < i - 1; j++) {
-        if (this.collection.compare(j, j+1)) {
-          this.collection.swap(j, j+1)
+        if (this.compare(j, j+1)) {
+          this.swap(j, j+1)
           noSwaps = false
         }
       }
